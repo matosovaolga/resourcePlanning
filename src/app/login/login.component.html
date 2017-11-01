@@ -1,0 +1,26 @@
+<div class="col-md-12" id="loginForm">
+    <div class="col-md-10 col-md-offset-2">
+        <h1>Login</h1>
+        <div class="noticeTxt">
+            <p>You do not need any additional credentials to login. Please, use your login and password the same as for Redmine</p>
+        </div>
+    </div>
+    <form name="form" class="col-md-3 col-md-offset-2" (ngSubmit)="loginF.valid && login()" #loginF="ngForm" novalidate>
+        <div class="form-group" ngModelGroup="login" [ngClass]="{ 'has-error': loginF.submitted && !username.valid,  'has-success': username.valid && (username.dirty || username.touched) }">
+            <label for="username">Login</label>
+            <input id="email"  class="form-control" maxlength="60" minlength="3" name="username" [(ngModel)]="user.username" #username="ngModel" required />
+
+            <show-errors [control]="username" [form]="loginF"></show-errors>
+        </div>
+        <div class="form-group" ngModelGroup="password" [ngClass]="{ 'has-error': loginF.submitted && !password.valid,  'has-success': password.valid && (password.dirty || password.touched)  }">
+            <label for="password">Password</label>
+            <input id="pass" type="password" class="form-control" maxlength="30" minlength="8"  name="password" [(ngModel)]="user.password" #password="ngModel" required />
+            <show-errors [form]="loginF" [control]="password"></show-errors>
+
+        </div>
+        <div class="form-group">
+            <button id="login" [disabled]="loading"  class="btn btn-primary" >Log in</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+/.buildpath
+/.DS_Store
+/.idea
+/.doc
+/.project
+
+/server/config/db.json
+/server/config/global.json
+server/config/global.json
+
+
+/public/js/dist
+
+# dependencies
+/public/js/node_modules
+/vendor
+
+# e2e
+/public/js/e2e/*.js
+/public/js/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
+/.Trash-1000
+/.~lock.*
+
+/nbproject/private/
+/nbproject/
+/node_modules/
+

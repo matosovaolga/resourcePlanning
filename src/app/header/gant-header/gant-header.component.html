@@ -1,0 +1,10 @@
+<div class="gantHeader" >
+     <div class='gantHeaderWrapp' [ngClass]="{'fixed': sticky}">
+    <div class="clearfix userRow">
+        <my-date-range-picker [options]="myDateRangePickerOptions" (dateRangeChanged)="changeDateRange($event)" [(ngModel)]="dateRange"
+            placeholder="Select Start and End date"
+            ></my-date-range-picker>
+        <app-calendar  [dateConfig]="dateConfig" (onChanged)="onChanged($event)"></app-calendar>
+    </div>
+</div>
+</div>

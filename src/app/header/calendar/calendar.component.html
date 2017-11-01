@@ -1,0 +1,31 @@
+<div class="calLineMain" #calLineMain >
+    <a (click)="changeDateRange('prev', 'month')" class="prev prev-month">&nbsp;</a>
+    <a (click)="changeDateRange('next', 'month')" class="next next-month">&nbsp;</a>
+    <a (click)="changeDateRange('prev', 'day')" class="prev prev-day">&nbsp;</a>
+    <a (click)="changeDateRange('next', 'day')" class="next next-day">&nbsp;</a>
+    <div *ngFor="let month of dateConfig" class="monthWrapper">
+        <span class="monthLine">
+            <a href="">{{month.name}}</a>
+        </span>
+
+        <div class="daysWrapper">
+
+            <div
+                *ngFor="let day of month.daysRange"
+                class="dayBlock"
+                [ngStyle]="{'width': daysWidth + 'px'}"
+                [ngClass]=" (day.weekIndex === 6 || !day.weekIndex ) ? 'weekend' : '' "
+                >
+                <span class="daysLine">
+                    <a href="">{{day.serial}}</a>
+                </span>
+
+                <span class="weeksLine">
+                    <a href="">{{weekDays[day.weekIndex]}}</a>
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+</div>

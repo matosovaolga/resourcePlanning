@@ -1,0 +1,88 @@
+.calLineMain {
+    width: 85%;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    position: relative;
+    padding: 0 30px;
+}
+
+.dayBlock {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+     -webkit-flex-direction:column;
+     -moz-flex-direction:column;
+    flex-direction: column;
+}
+
+.monthLine {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    text-transform: uppercase;
+    border-right: 1px solid #e9e8e7;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+}
+.monthWrapper:last-child .monthLine {
+    border-right: 0;
+}
+.next,
+.prev {
+    border-bottom: 1px solid #e9e8e7;
+}
+.next-month,
+.prev-month,
+.next-day,
+.prev-day {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.next-day,
+.prev-day {
+   top: 27px;
+}
+.next-month,
+.next-day {
+    left: auto;
+    right: 0;
+}
+
+.monthLine,
+.daysLine {
+    width: 100%;
+}
+
+.daysLine,
+.weeksLine {
+    justify-content: center;
+}
+
+.monthLine,
+.daysLine,
+.weeksLine {
+    height: 27px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    border-bottom: 1px solid #e9e8e7;
+}
+
+.daysWrapper {
+    -webkit-display: flex;
+    -moz-display: flex;
+    display: flex;
+}
+
+.weekend a{
+    color: #999;
+}

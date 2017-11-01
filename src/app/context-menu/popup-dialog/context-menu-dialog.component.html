@@ -1,0 +1,29 @@
+<div class="projNote">
+    <div class="modalBody" tabindex="0" >
+        <p class="projBallonName">{{this.planModel.project}}</p>
+        <ul class="projDetaisList">
+            <li class="clearfix">
+                <span class="name">Start</span>
+                <span class="desc">{{this.startPlan}}</span>
+            </li>
+            <li class="clearfix">
+                <span class="name">End</span>
+                <span class="desc">{{this.endPlan}}</span>
+            </li>
+            <li *ngIf="adminRole" class="clearfix separator"></li>
+            <li *ngIf="adminRole" class="clearfix" (click)="copyPlan(this.planModel)">
+		<span class="option"><i class="icon copy"></i> Copy</span>
+            </li>
+            <li class="clearfix ng-scope" *ngIf="copy" (click)="pastPlan()">
+		<span class="option"><i class="icon paste"></i> Paste</span>
+            </li>
+            <li *ngIf="adminRole" class="clearfix" (click)='collapsePlan()'>
+		<span class="option"><i class="icon collapse"></i> Collapse</span>
+            </li>
+            <li *ngIf="adminRole" class="clearfix" (click)="deletePlan()">
+		<span class="option"><i class="icon delete"></i> Delete</span>
+            </li>
+        </ul>
+    </div>
+</div>
+

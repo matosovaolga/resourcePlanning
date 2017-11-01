@@ -1,0 +1,4 @@
+{
+    "port":"33335",
+    "jwtSecret":"qwe"
+}

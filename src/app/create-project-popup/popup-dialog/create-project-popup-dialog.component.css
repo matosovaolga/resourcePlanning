@@ -1,0 +1,19 @@
+.button {
+    width: 46%;
+    height: 34px;
+    line-height: 24px;
+}
+
+md-datepicker-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.dateField {
+    border-bottom: 0;
+    box-shadow: none;
+    padding-right: 40px;
+    text-align: center;
+}
+

@@ -1,0 +1,7 @@
+{
+    "host":"dcodeit.net",
+    "database":"resource-planning",
+    "username":"root",
+    "password":"pass",
+    "dialect":"mysql"
+}

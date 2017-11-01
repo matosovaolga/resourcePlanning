@@ -1,0 +1,50 @@
+<img src="{{ codeItLogo }}">
+
+<button-component *ngIf="isLogin" (click)="logout()">Log out</button-component>
+<button-component >Save logs</button-component>
+<div class="legendWrap" *ngIf="isLogin">
+    <button-component class="legendMeta" (click)="toogleLegendList()">?</button-component>
+
+    <div class="dropLegend" [hidden]="!menulist">
+        <p class="title" (click)="toogleLegendList()">Legend</p>
+        <ul>
+            <li class="clearfix">
+                <span class="legendColor" style="background-color:#82c785"></span>
+                Confirmed
+            </li>
+            <li class="clearfix">
+                <span class="legendColor" style="background-color:#ffd741"></span>
+                Expected
+            </li>
+            <li class="clearfix">
+                <span class="legendColor" style="background-color:#90a4ae"></span>
+                Vacation
+            </li>
+            <li class="clearfix">
+                <span class="legendColor" style="background-color:#f8aa92"></span>
+                Internal works
+            </li>
+            <li class="clearfix">
+                <span class="legendColor" style="background-color:#84d2f6"></span>
+                Estimates
+            </li>
+            <li class="clearfix">
+                <span class="legendColor" style="background-color:#0079BF"></span>
+                Sick leave
+            </li>
+            <li class="clearfix">
+                <span class="legendColor holidayLeg"></span> Holidays
+            </li>
+            <li class="clearfix">
+                <span class="lines nowLeg"></span>Current Date
+            </li>
+            <li class="clearfix">
+                <span class="lines cursorLeg"></span> Selected Date
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+

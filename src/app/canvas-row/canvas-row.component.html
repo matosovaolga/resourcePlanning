@@ -1,0 +1,12 @@
+<svg [attr.height]='user.maxheight' id="{{user.id}}" class="mainSvg">
+
+    <line *ngFor="let line of lines; let i = index" [attr.x1]="(i+1)*marginBetween" [attr.x2]="(i+1)*marginBetween" stroke-dasharray="4, 4" style="stroke-width:1; stroke:rgb(205,204,203)" y1="0" y2="200" />
+    <svg *ngIf='adminRole' height="100%" width="100%" viewBox="0 0 100 100"  preserveAspectRatio="none" (mousedown)="mouseDown($event)">
+        <rect width="300" height="100" style="fill:rgba(0,0,255, 0);" />
+    </svg>
+    <svg plan-single  [user]="user" [attr.height]='34' [attr.y]="plan.top" *ngFor="let plan of user.plans; let i = index" [plan]='plan' [startRange]='start' [endRange]='end' [fieldWidth]='fieldWidth'></svg>
+</svg>
+
+
+
+

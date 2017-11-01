@@ -1,0 +1,7 @@
+app-canvas-row {
+    display: block;
+    position: relative;
+}
+svg[plan-single] {
+    width: 100%;
+}

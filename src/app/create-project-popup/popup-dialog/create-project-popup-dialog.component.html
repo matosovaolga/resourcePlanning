@@ -1,0 +1,129 @@
+<div class="editPlainingPopup">
+    <div class="modalHeader ng-scope">
+        <p class="popupHeader ng-binding">Create plan</p>
+        <button [md-dialog-close]="true" class="closePopup" type="button">×</button>
+        <p class="ng-binding">for {{usrData.lastname}} {{usrData.firstname}}</p>
+    </div>
+    <div class="modalBody ng-scope" tabindex="0" >
+        <form (ngSubmit)="createPlan.valid && planModel.project_id && createProject(usrData.id)"   #createPlan="ngForm" novalidate >
+
+            <div class="formWrapp clearfix">
+                <div class="formRow clearfix">
+                    <div class="thirdWidthBlock formCol">
+                        <label>Project</label>
+                    </div>
+                    <div class="form-group twothirdWidthBlock formCol">
+
+                        <md-form-field class="example-full-width">
+                            <input type="text" md-require-match="true" 
+                                   placeholder="Select Project"
+                                   aria-label="Number" mdInput [formControl]="choosePlan"
+                                   [mdAutocomplete]="auto"
+                                   name='project'
+                                   required>
+
+                            <md-autocomplete #auto="mdAutocomplete" [displayWith]="displayFn.bind(this)">
+                                <md-option  (onSelectionChange)="selectProject($event, project)"  *ngFor="let project of filteredProjects | async" [value]="project">
+                                    {{ project.name }}
+                                </md-option>
+                            </md-autocomplete>
+                    </md-form-field>
+
+                    <div [hidden]="planModel.project_id || !createPlan.submitted" class="error clearfix">
+                        <small class="text-danger">This value is required</small>
+                    </div>
+                </div>
+            </div>
+            <div class="formRow clearfix form-group">
+                <div class="thirdWidthBlock date formCol">
+                    <label>Start date</label>
+                </div>
+                <md-form-field required class="twothirdWidthBlock formCol">
+                    <input
+                        mdInput
+                        name="start_time"
+                        #start_time="ngModel"
+                        [mdDatepicker]="startDate"
+                        date="true"
+                        [(ngModel)]="planModel.start_time"
+                        (ngModelChange)="changeStart()"
+                        class="dateField"
+                        placeholder="Choose a date">
+                    <md-datepicker-toggle mdSuffix [for]="startDate"></md-datepicker-toggle>
+                    <md-datepicker [startView]="dateStart" #startDate></md-datepicker>
+                </md-form-field>
+            </div>
+            <div class="formRow clearfix form-group">
+                <div class="thirdWidthBlock date formCol">
+                    <label>End date</label>
+                </div>
+                <md-form-field class="twothirdWidthBlock formCol">
+                    <input name="end_time"
+                           #end_time="ngModel"
+                           mdInput [mdDatepicker]="endDate"
+                           placeholder="Choose a date"
+                           [(ngModel)]="planModel.end_time"
+                           (dateChange)="onTitleChange()"
+                           date="true"
+                           class="dateField"
+                           (ngModelChange)="changeEnd()"
+                           >
+                           <md-datepicker-toggle mdSuffix [for]="endDate"></md-datepicker-toggle>
+                    <md-datepicker #endDate></md-datepicker>
+                </md-form-field>
+            </div>
+            <div class="formRow clearfix ">
+                <div class="thirdWidthBlock formCol">
+                    <label>Approved</label>
+                </div>
+                <div class="twothirdWidthBlock formCol form-group">
+                    <div class=" flRight">
+                        <md-checkbox [checked]="true" id="approved" #approved="ngModel" name="approved"
+                              [(ngModel)]="planModel.approved"></md-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="formRow clearfix">
+                <div class="thirdWidthBlock formCol">
+                    <label>Busy time</label>
+                </div>
+                <div class="twothirdWidthBlock formCol" >
+                    <div class="clearfix">
+                        <span class="label flRight">%</span>
+                        <input class="flRight smallInp" type="text"
+                               (keypress)="keyPress($event)"
+                              value="0"
+                               [(ngModel)]="planModel.percent"
+                               name="percent" #percent="ngModel" required
+                               >
+                        
+                        <div [hidden]="percent.valid || (percent.pristine && !createPlan.submitted)" class="error clearfix">
+                            <small class="text-danger">This value is required</small>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="formRow clearfix">
+                <div class="thirdWidthBlock formCol"><label>Note</label></div>
+            </div>
+
+            <div class="formRow clearfix">
+                <textarea [(ngModel)]="planModel.note"
+                    maxlength="250"
+                    name="note"
+                    class="ng-pristine"
+                    ></textarea>
+                <p class="tooltip flLeft">press Ctrl + Enter for new line</p>
+                <p class="tooltip ng-binding">250 characters left</p>
+            </div>
+        </div>
+
+        <div class="formRow clearfix btnsWrapp">
+            <button class="button baloonBtn" [md-dialog-close]="true">Cancel</button>
+            <button class="button red flRight ng-binding"  type="submit">Create</button>
+        </div>
+    </form>
+</div>
+
+</div>

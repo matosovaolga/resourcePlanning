@@ -1,0 +1,21 @@
+<div *ngFor="let item of users | sortBy: 'group_id'" class="clearfix groupRowWrapp groupOpened " [ngClass]="{'opened visOverflow': !item.show}">
+    <group-name [groupId]="item.key" (click)="item.show = !item.show"></group-name>
+    <div class="userRowWrapp clearfix">
+        <div class="clearfix userRow" *ngFor="let user of item.value">
+            <div class="clearfix userNameWrapp" >
+                <span class="userName">{{user.lastname}} {{user.firstname}}</span>
+                <app-create-project-popup [user]="user" *ngIf="adminRole"></app-create-project-popup>
+            </div>
+            <div class="clearfix calLineWrapp">
+                <app-canvas-row [user]="user"
+                    [fieldWidth]="fieldWidth"
+                    [planList]="user.plans"
+                    (mousemove)="moveCursorLine($event)"
+                    (mouseleave)="mouseLeave()"
+                ></app-canvas-row>
+            </div>
+        </div>
+    </div>
+    <app-cursors [mouseCursor]="cursorPosition" [leave]="leave"></app-cursors>
+</div>
+
